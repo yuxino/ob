@@ -1,15 +1,13 @@
-// const Vue = function() {
-import Observer from "./Observer";
 import observe from "./observe";
 import Watcher from "./Watcher";
 
-class Vue {
+class Mvvm {
   constructor(options = {}) {
     // 简化了$options的处理
     this.$options = options;
     // 简化了对data的处理
     let data = (this._data = this.$options.data);
-    // 将所有data最外层属性代理到Vue实例上
+    // 将所有data最外层属性代理到Mvvm实例上
     Object.keys(data).forEach(key => this._proxy(key));
     // 监听数据
     observe(data);
@@ -30,4 +28,4 @@ class Vue {
   }
 }
 
-export default Vue;
+export default Mvvm;

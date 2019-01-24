@@ -1,7 +1,7 @@
-import Vue from "./src/Vue";
+import Mvvm from "./src/Mvvm";
 
 function __main__() {
-  let demo = new Vue({
+  let demo = new Mvvm({
     data: {
       text: ""
     }
