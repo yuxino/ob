@@ -6,7 +6,7 @@
   "author": "-A- <nbsawz@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --open --port 3212"
+    "start": "webpack-dev-server --open"
   },
   "devDependencies": {
     "html-webpack-plugin": "^3.2.0",

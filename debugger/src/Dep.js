@@ -19,6 +19,7 @@ class Dep {
   }
 }
 
+// The dep need to collect watcher
 Dep.target = null;
 
 export default Dep;

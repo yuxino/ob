@@ -3,7 +3,8 @@ import Mvvm from "./src/Mvvm";
 function __main__() {
   let demo = new Mvvm({
     data: {
-      text: ""
+      text: "",
+      qaq: ""
     }
   });
 
@@ -14,7 +15,15 @@ function __main__() {
     demo.text = e.target.value;
   });
 
-  demo.$watch("text", str => (p.innerHTML = str));
+  demo.$watch("text", str => {
+    p.innerHTML = str;
+    console.log(str);
+  });
+
+  demo.$watch("text", str => {
+    p.innerHTML = str;
+    console.log(str);
+  });
 }
 
 __main__();

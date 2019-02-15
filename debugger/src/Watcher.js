@@ -6,7 +6,7 @@ class Watcher {
     this.vm = vm;
     this.cb = cb;
     this.expOrFn = expOrFn;
-    this.val = this.get(); // save after update value
+    this.val = this.get();
   }
 
   // when dep update will call update
@@ -14,7 +14,7 @@ class Watcher {
     this.run();
   }
 
-  // Only save new dep instance
+  // avoid add same dep multiple
   addDep(dep) {
     if (!this.depIds.hasOwnProperty(dep.id)) {
       dep.addSub(this);
@@ -31,9 +31,10 @@ class Watcher {
     }
   }
 
-  // 当前订阅者(Watcher)读取被订阅数据的最新更新后的值时，通知订阅者管理员收集当前订阅者
+  // dep collect
   get() {
     Dep.target = this;
+    // Dep Add the Watchers ⬇
     const val = this.vm._data[this.expOrFn];
     Dep.target = null;
     return val;
