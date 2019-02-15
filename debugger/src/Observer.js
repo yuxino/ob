@@ -24,6 +24,8 @@ class Observer {
       enumerable: true,
       configurable: true,
       get: () => {
+        // wathcer / nomarl data
+        // if watcher run that ⬇
         if (Dep.target) {
           dep.depend();
         }

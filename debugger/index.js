@@ -3,7 +3,7 @@ import Mvvm from "./src/Mvvm";
 function __main__() {
   let demo = new Mvvm({
     data: {
-      text: "",
+      text: [0],
       qaq: ""
     }
   });
@@ -12,18 +12,17 @@ function __main__() {
   const input = document.getElementById("input");
 
   input.addEventListener("keyup", function(e) {
-    demo.text = e.target.value;
+    demo.text[0] = e.target.value;
   });
 
-  demo.$watch("text", str => {
+  demo.$watch("text.0", str => {
     p.innerHTML = str;
-    console.log(str);
   });
 
-  demo.$watch("text", str => {
-    p.innerHTML = str;
-    console.log(str);
-  });
+  demo.qaq = 123;
+
+  demo.qaq;
+  demo.qaq;
 }
 
 __main__();

@@ -35,7 +35,9 @@ class Watcher {
   get() {
     Dep.target = this;
     // Dep Add the Watchers ⬇
-    const val = this.vm._data[this.expOrFn];
+    // 🐞 bug here can't listern object properties
+    // now fix ..
+    const val = this.expOrFn.split(".").reduce((o, i) => o[i], this.vm._data);
     Dep.target = null;
     return val;
   }
